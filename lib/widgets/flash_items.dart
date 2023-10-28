@@ -9,9 +9,12 @@ class FlashItems extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 10),
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 18),
       decoration: BoxDecoration(
-          border: Border.all(width: 2, color: Colors.black),
+          border: Border.all(width: 2, color: Colors.grey),
           borderRadius: BorderRadius.circular(20)),
-      child: Text(title),
+      child: Text(
+        title,
+        style: const TextStyle(fontWeight: FontWeight.w600),
+      ),
     );
   }
 }

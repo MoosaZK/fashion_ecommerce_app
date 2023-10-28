@@ -32,7 +32,7 @@ class _SearchScreen extends ConsumerState<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final _products = ref.watch(productProvider);
+    final products = ref.watch(productProvider);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -215,7 +215,7 @@ class _SearchScreen extends ConsumerState<SearchScreen> {
                   height: 10,
                 ),
                 SizedBox(
-                  height: 500,
+                  height: 400,
                   child:
                       // GridView.builder(gridDelegate:      const SliverGridDelegateWithFixedCrossAxisCount(
                       //           crossAxisCount: 2,
@@ -229,16 +229,20 @@ class _SearchScreen extends ConsumerState<SearchScreen> {
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             childAspectRatio: 1.5,
-                            mainAxisSpacing: 10,
+                            mainAxisSpacing: 80,
                             crossAxisSpacing: 10),
-                    children: const [
+                    children: [
                       FlashProductCards(
+                          product: products[0],
                           image: "assets/images/brownjacketgirl.jpg"),
                       FlashProductCards(
+                          product: products[0],
                           image: "assets/images/brownjacketgirl.jpg"),
                       FlashProductCards(
+                          product: products[0],
                           image: "assets/images/brownjacketgirl.jpg"),
                       FlashProductCards(
+                          product: products[0],
                           image: "assets/images/brownjacketgirl.jpg"),
                     ],
                   ),
