@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:fashion_ecommerce_app/provider/product_provider.dart';
 import 'package:fashion_ecommerce_app/widgets/flash_product_cards.dart';
 import 'package:flutter/material.dart';
@@ -17,13 +16,6 @@ class SearchScreen extends ConsumerStatefulWidget {
 
 class _SearchScreen extends ConsumerState<SearchScreen> {
   String _location = "New York";
-
-  var _selectedTab = _SelectedTab.home;
-  void _handleIndexChanged(int i) {
-    setState(() {
-      _selectedTab = _SelectedTab.values[i];
-    });
-  }
 
   @override
   void initState() {
@@ -252,42 +244,6 @@ class _SearchScreen extends ConsumerState<SearchScreen> {
           ),
         ),
       ),
-
-      //Bottom Navigation
-      bottomNavigationBar: DotNavigationBar(
-        backgroundColor: Colors.grey[300],
-        currentIndex: _SelectedTab.values.indexOf(_selectedTab),
-        onTap: _handleIndexChanged,
-        selectedItemColor: Colors.black,
-
-        // dotIndicatorColor: Colors.black,
-        items: [
-          /// Home
-          DotNavigationBarItem(
-            icon: const Icon(Icons.home),
-          ),
-          DotNavigationBarItem(
-            icon: const Icon(Icons.shopping_bag),
-          ),
-
-          /// Likes
-          DotNavigationBarItem(
-            icon: const Icon(Icons.favorite),
-          ),
-
-          /// Search
-          DotNavigationBarItem(
-            icon: const Icon(Icons.chat),
-          ),
-
-          /// Profile
-          DotNavigationBarItem(
-            icon: const Icon(Icons.person),
-          ),
-        ],
-      ),
     );
   }
 }
-
-enum _SelectedTab { home, shopping, favorite, chat, person }
