@@ -45,39 +45,25 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             SizedBox(
-              height: 400,
-              child:
-                  // GridView.builder(gridDelegate:      const SliverGridDelegateWithFixedCrossAxisCount(
-                  //           crossAxisCount: 2,
-                  //           childAspectRatio: 1.5,
-                  //           mainAxisSpacing: 10,
-                  //           crossAxisSpacing: 10), itemBuilder: (ctx,index){
-
-                  //           })
-                  GridView(
+              height: 600,
+              child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 1.5,
-                    mainAxisSpacing: 80,
-                    crossAxisSpacing: 10),
-                children: [
-                  FlashProductCards(
-                      product: products[0],
-                      image: "assets/images/brownjacketgirl.jpg"),
-                  FlashProductCards(
-                      product: products[0],
-                      image: "assets/images/brownjacketgirl.jpg"),
-                  FlashProductCards(
-                      product: products[0],
-                      image: "assets/images/brownjacketgirl.jpg"),
-                  FlashProductCards(
-                      product: products[0],
-                      image: "assets/images/brownjacketgirl.jpg"),
-                ],
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.8,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 10,
+                ),
+                itemCount: products.length, // The number of items in your data
+                itemBuilder: (context, index) {
+                  return FlashProductCards(
+                    product:
+                        products[index], // Assuming you have a list of products
+                  );
+                },
               ),
             ),
           ],

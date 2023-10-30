@@ -45,7 +45,10 @@ class _SearchScreen extends ConsumerState<SearchScreen> {
                         ),
                         Row(
                           children: [
-                            const Icon(Icons.location_pin),
+                            const Icon(
+                              Icons.location_pin,
+                              color: Colors.brown,
+                            ),
                             const SizedBox(
                               width: 10,
                             ),
@@ -72,12 +75,7 @@ class _SearchScreen extends ConsumerState<SearchScreen> {
                         ),
                       ],
                     ),
-                    //
-                    // ElevatedButton(
-                    //   style: ElevatedButton.styleFrom(side: ),
-                    //   onPressed: () {},
-                    //   child: const Icon(Icons.notifications),
-                    // ),
+
                     //Notification Button
                     Container(
                       padding: const EdgeInsets.all(8),
@@ -110,7 +108,7 @@ class _SearchScreen extends ConsumerState<SearchScreen> {
                     //edit button
                     Ink(
                       decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: Colors.brown,
                           borderRadius: BorderRadius.circular(12)),
                       child: InkWell(
                           onTap: () {},
@@ -129,20 +127,28 @@ class _SearchScreen extends ConsumerState<SearchScreen> {
                 ),
                 CarouselSlider(items: [
                   Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(12)),
-                    // width: MediaQuery.of(context).size.width,
-                  ),
-                  Container(
                     margin: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(12)),
-                    // width: MediaQuery.of(context).size.width,
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(
+                          12), // This is incorrect for BoxDecoration
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                          12), // Use this for rounding the container
+                      child: Image.asset(
+                        "assets/images/cauroselsale.png",
+                        fit: BoxFit.fill,
+                      ),
+                    ),
                   ),
-                ], options: CarouselOptions()),
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.brown,
+                        borderRadius: BorderRadius.circular(12)),
+                  ),
+                ], options: CarouselOptions(height: 150)),
                 const SizedBox(
                   height: 20,
                 ),
@@ -166,10 +172,22 @@ class _SearchScreen extends ConsumerState<SearchScreen> {
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CategoryItems(),
-                    CategoryItems(),
-                    CategoryItems(),
-                    CategoryItems(),
+                    CategoryItems(
+                      title: "Shirt",
+                      iconData: Icons.cruelty_free,
+                    ),
+                    CategoryItems(
+                      title: "Dress",
+                      iconData: Icons.cruelty_free,
+                    ),
+                    CategoryItems(
+                      title: "Jacket",
+                      iconData: Icons.cruelty_free,
+                    ),
+                    CategoryItems(
+                      title: "Jacket",
+                      iconData: Icons.cruelty_free,
+                    ),
                   ],
                 ),
                 const SizedBox(
@@ -193,12 +211,10 @@ class _SearchScreen extends ConsumerState<SearchScreen> {
                     scrollDirection: Axis.horizontal,
                     children: const <Widget>[
                       FlashItems(title: "All"),
-
+                      FlashItems(title: "Newest"),
                       FlashItems(title: "Popular"),
-                      FlashItems(title: "Popular"),
-                      FlashItems(title: "Popular"),
-                      FlashItems(title: "Popular"),
-                      FlashItems(title: "Popular"),
+                      FlashItems(title: "Women"),
+                      FlashItems(title: "Men"),
                       // FlashItems(title: "Newest"),
                     ],
                   ),
@@ -207,38 +223,24 @@ class _SearchScreen extends ConsumerState<SearchScreen> {
                   height: 10,
                 ),
                 SizedBox(
-                  height: 400,
-                  child:
-                      // GridView.builder(gridDelegate:      const SliverGridDelegateWithFixedCrossAxisCount(
-                      //           crossAxisCount: 2,
-                      //           childAspectRatio: 1.5,
-                      //           mainAxisSpacing: 10,
-                      //           crossAxisSpacing: 10), itemBuilder: (ctx,index){
-
-                      //           })
-                      GridView(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            childAspectRatio: 1.5,
-                            mainAxisSpacing: 80,
-                            crossAxisSpacing: 10),
-                    children: [
-                      FlashProductCards(
-                          product: products[0],
-                          image: "assets/images/brownjacketgirl.jpg"),
-                      FlashProductCards(
-                          product: products[0],
-                          image: "assets/images/brownjacketgirl.jpg"),
-                      FlashProductCards(
-                          product: products[0],
-                          image: "assets/images/brownjacketgirl.jpg"),
-                      FlashProductCards(
-                          product: products[0],
-                          image: "assets/images/brownjacketgirl.jpg"),
-                    ],
-                  ),
-                ),
+                    height: 600,
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.8,
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 10,
+                      ),
+                      itemCount:
+                          products.length, // The number of items in your data
+                      itemBuilder: (context, index) {
+                        return FlashProductCards(
+                          product: products[
+                              index], // Assuming you have a list of products
+                        );
+                      },
+                    )),
               ],
             ),
           ),

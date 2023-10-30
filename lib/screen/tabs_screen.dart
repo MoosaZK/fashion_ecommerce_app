@@ -30,10 +30,11 @@ class _TabsScreenState extends State<TabsScreen> {
       body: activePage,
       //Bottom Navigation
       bottomNavigationBar: DotNavigationBar(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.grey[800],
         currentIndex: _SelectedTab.values.indexOf(_selectedTab),
         onTap: _handleIndexChanged,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.grey[100],
+        unselectedItemColor: Colors.brown[300],
 
         // dotIndicatorColor: Colors.black,
         items: [
@@ -67,6 +68,7 @@ class _TabsScreenState extends State<TabsScreen> {
 
 enum _SelectedTab { home, shopping, favorite, chat, person }
 
+// ignore: library_private_types_in_public_api
 Map<_SelectedTab, Widget> tabScreenMap = {
   _SelectedTab.home: const SearchScreen(),
   _SelectedTab.shopping: const SearchScreen(),
