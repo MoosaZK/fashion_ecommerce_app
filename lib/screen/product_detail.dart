@@ -1,4 +1,5 @@
 import 'package:fashion_ecommerce_app/model/product_model.dart';
+import 'package:fashion_ecommerce_app/screen/cart_screen.dart';
 import 'package:fashion_ecommerce_app/widgets/size_option.dart';
 import 'package:flutter/material.dart';
 
@@ -148,11 +149,20 @@ class _ProductDetailState extends State<ProductDetail> {
                             borderRadius: BorderRadius.circular(12)),
                         child: InkWell(
                             onTap: () {},
-                            child: const Padding(
-                              padding: EdgeInsets.all(16),
-                              child: Icon(
-                                Icons.shopping_cart,
-                                color: Colors.white,
+                            child: Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: IconButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const CartScreen()));
+                                },
+                                icon: const Icon(
+                                  Icons.shopping_cart,
+                                  color: Colors.white,
+                                ),
                               ),
                             )),
                       ),
