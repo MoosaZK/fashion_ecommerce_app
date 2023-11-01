@@ -33,5 +33,6 @@ List<Product> dummyProducts = [
     rating: 4.7,
     category: ProductCategory.tShirt,
   ),
+
   // Add more items with different categories as needed
 ];

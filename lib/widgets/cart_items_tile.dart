@@ -62,11 +62,11 @@ class _CartItemTileState extends State<CartItemTile> {
                       size: 15,
                     )),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               const Text("1"),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Container(
