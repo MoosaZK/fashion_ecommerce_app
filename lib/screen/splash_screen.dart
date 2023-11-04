@@ -54,7 +54,8 @@ class _SplashScreenState extends State<SplashScreen>
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 40,
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'DMSerifText-Regular'),
                 ),
               ),
             ),
@@ -69,7 +70,10 @@ class _SplashScreenState extends State<SplashScreen>
               opacity: _animation,
               child: const Text(
                 "fashion",
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'DMSerifText-Regular'),
               ),
             ),
           )
