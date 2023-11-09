@@ -1,5 +1,5 @@
 import 'package:fashion_ecommerce_app/provider/product_provider.dart';
-import 'package:fashion_ecommerce_app/screen/searchscreen.dart';
+import 'package:fashion_ecommerce_app/screen/tabs_screen.dart';
 import 'package:fashion_ecommerce_app/widgets/bottom_appbar_button.dart';
 import 'package:fashion_ecommerce_app/widgets/cart_items_tile.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
           title: 'Procced to check out',
           onPressedCallback: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return SearchScreen();
+              return TabsScreen();
             }));
           },
         ));

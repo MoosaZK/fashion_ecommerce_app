@@ -1,4 +1,6 @@
+import 'package:fashion_ecommerce_app/screen/tabs_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -15,10 +17,14 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => const TabsScreen()));
+    });
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2), // Adjust the duration as needed
+      duration: const Duration(seconds: 1), // Adjust the duration as needed
     );
 
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
@@ -43,7 +49,6 @@ class _SplashScreenState extends State<SplashScreen>
             child: Container(
               height: 100,
               width: 100,
-              padding: const EdgeInsets.all(32),
               decoration: BoxDecoration(
                 color: Colors.brown,
                 borderRadius: BorderRadius.circular(100),
@@ -85,7 +90,8 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void dispose() {
     _controller.dispose();
-
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: SystemUiOverlay.values);
     super.dispose();
   }
 }
