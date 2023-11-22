@@ -68,7 +68,8 @@ flutter:
     - assets\images\cauroselsale.png
     - assets\images\brownbufferjacketboy.jpg
     - assets\images\darkjacketgirl.jpg
-
+    - assets\images\initleftup.jpg
+    - assets\images\initrightup.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -1,3 +1,4 @@
+import 'package:fashion_ecommerce_app/screen/lets_get_started_screen.dart';
 import 'package:fashion_ecommerce_app/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SplashScreen(),
+      home: LetsGetStartedScreen(),
     );
   }
 }
